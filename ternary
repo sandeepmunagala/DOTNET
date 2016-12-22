@@ -1,0 +1,10 @@
+public class program
+{
+    public static void Main()
+    {
+        double a = 10.10, b = 20.20;
+
+        var result = a > b ? "a is greater than b" : "b is greater than a";
+        Console.WriteLine(result);
+    }
+}
