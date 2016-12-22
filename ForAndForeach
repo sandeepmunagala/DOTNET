@@ -1,0 +1,22 @@
+class Program
+    {
+    
+        static void Main(string[] args)
+        
+        {
+        int[] numbers = new int[3];
+        numbers[0] = 101;
+        numbers[1] = 102;
+        numbers[2] = 103;
+
+        foreach (int a in numbers)
+        {
+            Console.WriteLine("numbers are {0}",a);
+        }
+        for(int i = 0; i < numbers.Length; i++)
+        {
+            Console.WriteLine("numbers are {0}",numbers[i]);
+        }
+    }
+    
+    }
