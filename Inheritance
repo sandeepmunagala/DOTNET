@@ -1,0 +1,36 @@
+public class Employee
+{
+    public string firstname;
+    public string lastname;
+    public string email;
+
+    public void fullname()
+    {
+        Console.WriteLine(firstname + " " + lastname);
+    }
+
+    public class FulltimeEmployee : Employee
+    {
+        public float yearlysalary;
+    }
+
+    public class ParttimeEmployee : Employee
+    {
+        public float hourlybasis;
+    }
+
+     public class program{ 
+        public static void Main(string[] args)
+        {
+            FulltimeEmployee FTE = new FulltimeEmployee(); //FTE is an object of FulltimeEmployee class
+            FTE.firstname = "Sandeep";
+            FTE.lastname = "kumar";
+            FTE.yearlysalary = 70000;
+            FTE.fullname();
+            Console.WriteLine("yearly salary is: {0}",FTE.yearlysalary);
+            
+
+
+        }
+    }
+}
