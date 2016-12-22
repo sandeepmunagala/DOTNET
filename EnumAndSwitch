@@ -1,0 +1,48 @@
+enum EmployeeNames
+{
+    anderson = 10,
+    kelly,
+    monica
+}
+
+public class Employee
+{
+    public static void Main()
+    {
+        start:
+        Console.WriteLine("Enter a value from the following 1.10, 2.11, 3.12");
+        int number = int.Parse(Console.ReadLine());
+
+        switch (number)
+        {
+            case 10:
+                Console.WriteLine("The Employee you have choosed is:" + EmployeeNames.anderson);
+                break;
+            case 11:
+                Console.WriteLine("The Employee you have choosed is:" + EmployeeNames.kelly);
+                break;
+            case 12:
+                Console.WriteLine("The Employee you have choosed is:" + EmployeeNames.monica);
+                break;
+            default:
+                Console.WriteLine("You made an invalid choice. Please select the appropriate");
+                goto start;
+        }
+
+        start2:
+        Console.WriteLine("Do you want to continue? 1.Yes 2.No");
+        String value = Console.ReadLine();
+
+        switch (value)
+        {
+            case "Yes":
+                goto start;
+            case "No":
+                break;
+            default:
+                Console.WriteLine("You made an invlaid selection. Please select the correct choice");
+                goto start2;
+        }
+        Console.WriteLine((int)EmployeeNames.anderson);
+        }
+    }
