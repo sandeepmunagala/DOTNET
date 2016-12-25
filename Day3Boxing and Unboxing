@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i, j;
+            Console.WriteLine("Enter the value of i");
+            i = int.Parse(Console.ReadLine());
+            object a = i; //Boxing
+            Console.WriteLine("Boxing Result is: " + a);
+            j = (int)a; //Unboxing
+            Console.WriteLine("Unboxing Result is: " + j);
+
+            Console.ReadLine();
+        }
+    }
+}
