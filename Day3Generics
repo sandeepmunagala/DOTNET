@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        public class GenericExmp<T>
+        {
+            public T output(T t1, T t2)
+            {
+                dynamic i = t1;
+                dynamic j = t2;
+                return i + j;
+            }
+        }
+        static void Main(string[] args)
+        {
+            GenericExmp<double> g1 = new GenericExmp<double>();
+            double i = g1.output(20.75, 10);
+
+            GenericExmp<int> g2 = new GenericExmp<int>();
+            double j = g2.output(10, 15);
+            Console.WriteLine("Double output \t" + i);
+            Console.WriteLine("Integer output \t" + j);
+            Console.ReadLine();
+        }
+    }
+ }
