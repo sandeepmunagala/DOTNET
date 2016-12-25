@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string s1 = "DOT";
+            s1 += " NET";
+            s1 += " TRAINING";
+            StringBuilder s2 = new StringBuilder("DECEMBER");
+            s2.Append(" BATCH");
+            s2.Append(" 2016");
+
+            Console.WriteLine(s1 + "\n");
+            Console.WriteLine(s2.ToString());
+            Console.ReadLine();
+        }
+    }
+}
