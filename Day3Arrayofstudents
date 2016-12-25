@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    public class student
+    {
+        public string FirstName;
+        public string LastName;
+        public int rollno;
+    }
+
+    class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            student[] array = new student[5];
+
+            for (int j = 0; j < array.Length; j++)
+            {
+                array[j] = new student();
+                Console.WriteLine("Enter FirstName of the Student :\t");
+                array[j].FirstName = Convert.ToString(Console.ReadLine());
+                Console.WriteLine("Enter LastName of the Student :\t");
+                array[j].LastName = Convert.ToString(Console.ReadLine());
+                Console.WriteLine("Enter Rollnumber of the Student:\t");
+                array[j].rollno = Convert.ToInt32(Console.ReadLine());
+
+            }
+            foreach (student st in array)
+            {
+                Console.Write(st.FirstName + st.LastName + "\t" + st.rollno + "\n");
+
+            }
+            Console.ReadLine();
+        }
+    }
+}
