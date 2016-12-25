@@ -1,0 +1,55 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ConsoleApplication3
+{
+    public class Program
+    {
+
+        static void Main(string[] args)
+        {
+            //hashtable creation
+            Hashtable ht = new Hashtable();
+            ht.Add(12, "Texas");//adding an element into hashtable
+            ht.Add(23, "Dallas");
+            ht.Add(34, "Missouri");
+            ht.Add(45, "Kansas");
+            ht[56] = "Houston";//another way of adding an element into hashtable
+            Console.WriteLine(ht.ContainsValue("Dallas"));
+
+            //foreach loop
+            foreach (int key in ht.Keys)
+            {
+                Console.WriteLine(key);//displays keys on console
+            }
+            foreach (string value in ht.Values)
+            {
+                Console.WriteLine(value);//displays values on console
+            }
+
+            //Arraylist Creation
+            ArrayList arrayList = new ArrayList(ht.Keys);
+            foreach (int key in arrayList)
+            {   
+                Console.Write(key+" ");
+            }
+
+            //while loop
+            int i = 0,j;
+            while (i < arrayList.Count)
+            {
+                j = i * i;
+                i++;
+                Console.WriteLine("The value of j's are: " + j);
+            }
+            Console.WriteLine("");
+            int count = ht.Count;
+            Console.WriteLine("The number of values in hashtable is: {0}",count);//gives the count of values in the hashtable
+            ht.Clear();//clears the hashtable
+            Console.WriteLine(ht.Count);//returns the count of values int hashtable
+        }
+        }
+}
