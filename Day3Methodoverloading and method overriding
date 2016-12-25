@@ -1,0 +1,98 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    public class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            //Method Overloading (Methods Calling)
+            Program.arithematic();
+            Console.WriteLine("Enter first number");
+            double i= double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the second number");
+            double j= double.Parse(Console.ReadLine());
+            Program.arithematic(i,j);
+
+            //Method Overriding (Methods Calling)
+            Employee e = new Employee();
+            e.EmployeeDetails();
+            Employee e1 = new FullTimeEmployee();
+            e1.EmployeeDetails();
+            Employee e2 = new PartTimeEmployee();
+            e2.EmployeeDetails();
+        }
+
+        //Method Overloading
+        public static void arithematic ()
+        {
+            Console.WriteLine("Enter the first number");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the second number");
+            int b = int.Parse(Console.ReadLine());
+            int c = a + b;
+            Console.WriteLine("The sum is: {0}", c);
+        }
+        public static void arithematic(double i, double j)
+        {
+            double k = i * j;
+            Console.WriteLine("The multiplication  is: {0}",k);
+        }
+
+        //Method Overriding
+        //Base Class
+        public class Employee
+        {
+            protected String FirstName; //This access modifier can be used in this class and also the class inherited from this. In this example FullTimeEmployee and PartTimeEmployee can use.
+            protected String LastName;
+
+            public virtual void EmployeeDetails()
+            {
+                Console.WriteLine("Please enter employee FirstName:");
+                FirstName = (Console.ReadLine());
+                Console.WriteLine("Please enter employee LastName:");
+                LastName = (Console.ReadLine());
+                Console.WriteLine("The Employer FullName is {0} {1}", FirstName, LastName);
+            }
+
+        }
+
+        //Child Class 1
+        public class FullTimeEmployee : Employee
+        {
+            private String salary; //This access modifier can be used only in this class
+            public override void EmployeeDetails()
+            {
+                Console.WriteLine("Please enter employee FirstName:");
+                FirstName = (Console.ReadLine());
+                Console.WriteLine("Please enter employee LastName:");
+                LastName = (Console.ReadLine());
+                Console.WriteLine("Please enter employee salary:");
+                salary = (Console.ReadLine());
+                Console.WriteLine("The Employer FullName is {0} {1} and his salary is {2}",FirstName,LastName,salary);
+
+            }
+        }
+
+        ////Child Class 1
+        public class PartTimeEmployee : Employee
+        {
+            private int Billrate; ////This access modifier can be used only in this class
+            public override void EmployeeDetails()
+            {
+                Console.WriteLine("Please enter employee FirstName:");
+                FirstName = (Console.ReadLine());
+                Console.WriteLine("Please enter employee LastName:");
+                LastName = (Console.ReadLine());
+                Console.WriteLine("Please enter employee salary:");
+                Billrate = int.Parse(Console.ReadLine());
+                Console.WriteLine("The Employer FullName is {0} {1} and his Billrate is {2}", FirstName, LastName, Billrate);
+            }
+        }
+    }
+}
