@@ -1,0 +1,82 @@
+//This is a program to demonstrate how to create interfaces with one different and one same method and its implementation (explicit implementation) in the class which is inherited from both interfaces 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Interface
+{
+    interface Iprint
+    {
+        void Print();
+        void Display();
+    }
+    interface Ifax
+    {
+        void Fax();
+        void Display();
+    }
+    public class Printer : Iprint, Ifax
+    {
+         void Iprint.Display()//This is nothing but explicit implemenatation. Since this method is same in both interfaces
+        {
+            ArrayList a = new ArrayList();
+            a.Add("1.send a Print");
+            a.Add("2.Enter print properties");
+            a.Add("3.Received Print");
+            foreach(object ob in a)
+            {
+                Console.WriteLine(ob);
+            }
+            Console.WriteLine("Please enter a value:");
+            Console.WriteLine("");
+            int i =int.Parse(Console.ReadLine());
+            if (i == 1)
+            {
+                Console.WriteLine("1.Print is send successfully");
+            }
+            else if (i == 2)
+            {
+                Console.WriteLine("2.valid properties are entered");
+            }
+            else if (i == 3)
+            {
+                Console.WriteLine("3.Print is received successfully");
+            }
+            else
+                Console.WriteLine("An invalid input is given. PLease select an appropriate choice");
+            Console.WriteLine("");
+        }
+        
+        void Ifax.Display()
+        {
+            Console.WriteLine("Ifax display method");
+            Console.WriteLine("");
+        }
+
+        public void Fax()
+        {
+            Console.WriteLine("Ifax fax method");
+            Console.WriteLine("");
+        }
+
+        public void Print()
+        {
+            Console.WriteLine("IPrint print method");
+            Console.WriteLine("");
+        }
+    }
+    class Interface
+    {
+        static void Main(string[] args)
+        {
+            Printer p = new Printer();
+            p.Print();
+            p.Fax();
+            ((Iprint)p).Display();
+            ((Ifax)p).Display();
+        }
+    }
+}
