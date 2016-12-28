@@ -1,0 +1,24 @@
+//This program demonstrates the usage of delegates. It is mainly used to point a function which has same signature.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Delegate
+{
+    public delegate void DelegateName(String message);
+    class Delegate
+    {
+        static void Main(string[] args)
+        {
+            
+                DelegateName de = new DelegateName(Print);
+            de("Welcome to C#");
+        }
+        public static void Print(String st)
+        {
+            Console.WriteLine("The given string is: {0}",st);
+        }
+    }
+}
