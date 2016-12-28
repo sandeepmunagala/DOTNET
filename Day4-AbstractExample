@@ -1,0 +1,41 @@
+//This program demonstrates about the implementation of an abstract methods in an inherited class and the usage of fields in an inherited class which are declared in an abstarct class
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Abstract
+{
+    public abstract class Shape{
+        public double i;
+        public double k;
+        public abstract void circle(int j);
+        
+        public void square(int a)
+        {
+            int b = a * a;
+            
+            Console.WriteLine("Area of the square is: {0}",b);
+        }
+    }
+    public class details : Shape
+    {
+        
+        public override void circle(int j)
+        {
+            i = 3.14;
+            k = i * j * j;
+            Console.WriteLine("Area of the Circle is: {0}",k);
+        }
+    }
+    class Abstract
+    {
+        static void Main(string[] args)
+        {
+            details d = new details();
+            d.circle(5);
+            d.square(5);
+        }
+    }
+}
