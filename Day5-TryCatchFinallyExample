@@ -1,0 +1,32 @@
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TryCatchFinally
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StreamReader sr=null;  
+            try
+            {
+                sr = new StreamReader(@"F:\C#-Assignments\Day5\fg.txt");
+                String a=sr.ReadToEnd();
+                Console.WriteLine(a);
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("File Not found");     
+            }
+            finally
+            {
+                if (sr != null)
+                sr.Close();
+            }
+        }
+    }
+}
