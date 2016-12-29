@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Types
+{
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            bool? i = null;//In general value types are by default non-nullable. To make them nullable use "?"
+            for (int j = 1; j < 3; j++)
+            {
+                if (i == true)
+                {
+                    Console.WriteLine("Your are selected");
+                }
+                else if (i == false)
+                {
+                    Console.WriteLine("Your are not selected");
+                }
+                else
+                {
+                    Console.WriteLine("The decision is still pending");                   
+                }
+                i = true;
+            }
+            Console.WriteLine("");
+            var a = new { FirstName = "Tim", id = 011205086, LastName = "Robert" };//This is anonymous type. We can only read this values in the program. We cannot change this values
+            Program p = new Types.Program();
+            Console.WriteLine("The FullName of coach is: {0} {1} and his ID is: {2}",a.FirstName,a.LastName, a.id);
+            
+        }
+    }
+}
