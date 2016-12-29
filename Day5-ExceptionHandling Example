@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExceptionHandling
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                try
+                {
+                    Console.WriteLine("Enter first Number");
+                    int i = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter Second Number");
+                    int j = int.Parse(Console.ReadLine());
+                    int DivisionResult = i / j;
+                    Console.WriteLine("The result is: {0}", DivisionResult);
+
+                }
+                catch (Exception de)
+                {
+                    String Filepath = "F:\\C#-Assignments\\Day5\\fg.txt";
+                    if (File.Exists(Filepath))
+                    {
+                        StreamWriter sw = new StreamWriter(Filepath);
+                        sw.WriteLine(de.GetType().Name);
+                       // File.WriteAllText(Filepath, de.Message);
+                        Console.WriteLine(de.Message);
+                        Console.WriteLine("Please provide appropriate data");                       
+                    }
+                    else
+                    {
+                        throw new FileNotFoundException("File is not present in the mentioned path. Please recheck", de);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Current Exception is: "+e.GetType().Name);
+                if (e.InnerException != null)
+                {
+                    Console.WriteLine("Inner Exception is: "+e.InnerException.GetType().Name);
+               }                              
+            }
+            }
+            
+        }
+    }
+
