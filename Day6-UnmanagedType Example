@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace UnmanagedType
+{
+    class Program : IDisposable
+    {
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            try
+            {
+                try
+                {
+                    Console.WriteLine("Enter first number: ");
+                    int i = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter second number: ");
+                    int j = int.Parse(Console.ReadLine());
+                    int k = i / j;
+                }
+                catch (Exception e)
+                {
+                    String Filepath = @"F:\C#-Documents\text.txt";
+                    if (File.Exists(Filepath))
+                    {
+                        StreamWriter sw = new StreamWriter(Filepath);
+                        sw.Write(e.GetType().Name);
+                        Console.WriteLine("Please specify appropriate filename");
+                    }
+                    else
+                    {
+                        throw new Exception("Please specify appropriate filename", e);
+                    }
+                }
+            }
+            catch(Exception de){
+                Console.WriteLine("Current Eception is: {0}",de.GetType().Name);
+                if (de.InnerException != null)
+                {
+                    Console.WriteLine("Inner exception is: {0}",de.InnerException.GetType().Name);
+                }
+            }
+            finally
+            {
+                p.Dispose();
+            }
+        }        
+        public void Dispose()//To release unmanaged resources
+        {
+            Console.WriteLine("The file which is opened to write the errordata is now closed by dispose method");
+        }
+    }
+}
