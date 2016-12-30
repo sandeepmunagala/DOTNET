@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Timers;
+
+namespace Idisposable
+{
+    class Program
+    {
+        long i, j;
+        float TotalAmount;
+        public static float k;
+        static Program()
+        {
+            k = 2.5f;
+        }
+        
+        public void Interest()
+        {
+            Console.WriteLine("Enter Principal Amount: ");
+            i = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter No of years: ");
+            j = int.Parse(Console.ReadLine());
+            TotalAmount = i * (1 + k * j);
+            Console.WriteLine("Total Amount is: {0}", TotalAmount);
+        }
+    
+    
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            p.Interest();
+            p.Dispose();
+            
+        }
+
+        public void Dispose()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Dispose Method is called to release unmamanged resources");
+        }
+    }
+}
