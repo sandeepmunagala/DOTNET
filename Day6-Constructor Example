@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Constructor
+{
+    class Program
+    {
+        long a;
+        String FirstName;
+        String LastName;
+        static int hike;
+        static string CompanyName;
+        
+        public Program()//default constructor
+        {
+            Console.WriteLine("");
+            Console.WriteLine("default constructor is called");
+            Console.WriteLine("");
+        }
+        public Program(int a, String FirstName, String LastName)//Constructor with parameters
+        {
+            this.a = a;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            Console.WriteLine("The Employee Fullname is: {0} {1} and his ID is: {2}", FirstName, LastName, a);
+            Console.WriteLine("");
+        }
+        public Program(long b, String First, String Last)//Constructor Overloading
+        {
+            this.a = b;
+            this.FirstName = First;
+            this.LastName = Last;
+            Console.WriteLine("The CEO Fullname is: {0} {1} and his ID is: {2}", FirstName, LastName, a);
+        }
+        long multiply()
+        {
+           return a*a;
+             
+    }
+        static Program()
+        {
+            hike = 13;
+            CompanyName = "IMCS GROUP";
+            Console.WriteLine("The hikeRate is: {0} in {1}",hike,CompanyName);
+        }
+        ~Program()//Destructor (This will be called for 3 times since we created 3 objects in this class). This destructor will be converted into Finalize method if the program has unmanageble resources and releases them.
+        {
+            Console.WriteLine("Destructor is called");
+        }
+
+        static void Main(string[] args)
+        {
+            Program p2 = new Program();
+            Program p = new Program(21325, "Peter", "Handscob");
+            Console.WriteLine("The product of the number given is: {0}",p.multiply());
+            Console.WriteLine("");
+            Program p1 = new Program(2211232122, "Tim", "Cooper");
+            Console.WriteLine("");
+            Console.WriteLine("The product of the number given is: {0}", p1.multiply());
+            Console.WriteLine("");                       
+    }        
+    }
+}
